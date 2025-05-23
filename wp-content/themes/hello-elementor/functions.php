@@ -433,3 +433,20 @@ function hs_display_kanye_quotes()
 	return $output;
 }
 add_shortcode('kanye_quotes', 'hs_display_kanye_quotes');
+
+function hs_give_me_coffee_shortcode()
+{
+	$response = hs_give_me_coffee();
+
+	if (!empty($response)) {
+		// $title = isset($data->title) ? esc_html($data->title) : 'Coffee';
+		// $description = isset($data->description) ? esc_html($data->description) : '';
+		// $image = esc_url($data->image);
+
+		return $response;
+	}
+
+	return '<p>☕ No coffee available.</p>';
+}
+// Register a shortcode
+add_shortcode('random_coffee', 'hs_give_me_coffee_shortcode');
